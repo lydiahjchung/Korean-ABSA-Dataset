@@ -15,7 +15,7 @@ $T$이 넘 늦어요 2시간 걸렸어요ㅡㅡ
 -1
 ```
 - 속성 용어와 감성별 데이터 분포
-![image](https://user-images.githubusercontent.com/38764035/146960812-37bd6b45-3d6b-44aa-8648-fab51a1511d3.png)
+<img src="https://user-images.githubusercontent.com/38764035/146960812-37bd6b45-3d6b-44aa-8648-fab51a1511d3.png" alt="drawing" width="500"/>
 
 ## Baseline 성능 평가
 - 구축한 데이터셋의 baseline 성능 평가를 위해 기존 ABSA 모델 활용
@@ -53,3 +53,15 @@ train_kr.py
 # 공통적으로 사용하는 파일 (for inference)
 infer_example_kr.py
 ```
+
+### 성능 평가 결과
+- 정확도(Accuracy), Macro-F1 score 측정
+- 각 모델별 10회씩 실험 후 평균, 표준편차 측정
+
+#### BERT 미사용 모델
+<img src="https://user-images.githubusercontent.com/38764035/146962735-9df5de4d-8a94-4772-8daa-db683160aa52.png" alt="drawing" width="500"/>
+
+#### BERT 사용 모델
+<img src="https://user-images.githubusercontent.com/38764035/146962774-43e67712-8a4b-4a6a-b78a-ede7aa1649ea.png" alt="drawing" width="500"/>
+
+
