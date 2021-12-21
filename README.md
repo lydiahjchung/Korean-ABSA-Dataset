@@ -41,6 +41,7 @@ pip install -r requirements.txt
 - 한국어 처리를 위해 multilingual BERT & KoBERT 두 가지 나누어 사용
 - multilingual BERT: `_mult`
 - KoBERT: `_kr`
+- non-BERT 모델들의 경우 혼용하여 사용 가능
 ``` python
 # pre-trained Multilingual BERT (base, uncased)
 data_utils_mult.py
@@ -54,6 +55,20 @@ train_kr.py
 infer_example_kr.py
 ```
 
+### How to train
+For example:
+``` python
+# pre-trained KoBERT + BERT SPC
+python train_kr.py --model_name bert_spc --lr 1e-5
+
+# pre-trained multilingual BERT + LCF BERT
+python train_mult.py --model_name lcf_bert --lr 2e-5 --l2reg 1e-5 --embed_dim 768 --hidden_dim 768 --dropout 0
+
+# AOA (train_mult.py 사용 무관)
+python train_kr.py --model_name aoa --lr 1e-3 --num_epoch 30 --l2reg 10e-4 --dropout 0.2
+
+```
+
 ### 성능 평가 결과
 - 정확도(Accuracy), Macro-F1 score 측정
 - 각 모델별 10회씩 실험 후 평균, 표준편차 측정
@@ -63,5 +78,6 @@ infer_example_kr.py
 
 #### BERT 사용 모델
 <img src="https://user-images.githubusercontent.com/38764035/146962774-43e67712-8a4b-4a6a-b78a-ede7aa1649ea.png" alt="drawing" width="500"/>
+
 
 
